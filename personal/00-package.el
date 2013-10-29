@@ -17,7 +17,7 @@
 (prelude-install-packages)
 
 (scroll-bar-mode -1)
-(load-theme 'manoj-dark t)
+(load-theme 'deeper-blue t)
 
 (require 'auto-complete-config)
 (global-set-key (kbd "RET") 'newline-and-indent)
@@ -52,9 +52,8 @@
                               (window-list))))
       (select-window (car window-of-buffer)))))
 
-(global-set-key (kbd "C-x w") 'ido-jump-to-window)
+(global-set-key (kbd "C-x C-w") 'ido-jump-to-window)
 
-(key-chord-define-global "we" 'ido-jump-to-window)
 (key-chord-define-global "wf" 'ido-find-file)
 (key-chord-define-global "op" 'ido-switch-buffer)
 
