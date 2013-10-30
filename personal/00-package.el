@@ -55,7 +55,6 @@
 (global-set-key (kbd "C-x C-w") 'ido-jump-to-window)
 
 (key-chord-define-global "wf" 'ido-find-file)
-(key-chord-define-global "op" 'ido-switch-buffer)
 
 (key-chord-define-global "vg"     'eval-region)
 (key-chord-define-global "vb"     'eval-buffer)
