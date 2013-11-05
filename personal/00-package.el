@@ -11,6 +11,10 @@
                                  popup
                                  solarized-theme
                                  elixir-mode
+                                 ag
+                                 helm-ag
+                                 pabbrev
+                                 highlight-symbol
                                  ) prelude-packages))
 
 ;; Install my packages
@@ -20,12 +24,7 @@
 (load-theme 'deeper-blue t)
 
 (require 'auto-complete-config)
-(global-set-key (kbd "RET") 'newline-and-indent)
 (global-auto-complete-mode t)
-(global-set-key (kbd "C-w") 'backward-kill-word)
-(global-set-key (kbd "C-x C-k") 'kill-region)
-
-(ac-set-trigger-key "TAB")
 
 ;; not sure why the local lambda def isn't working
 (defun swap (l)
@@ -52,26 +51,23 @@
                               (window-list))))
       (select-window (car window-of-buffer)))))
 
-(global-set-key (kbd "C-x C-w") 'ido-jump-to-window)
-
-(key-chord-define-global "wf" 'ido-find-file)
-
-(key-chord-define-global "vg"     'eval-region)
-(key-chord-define-global "vb"     'eval-buffer)
-(key-chord-define-global "cy"     'yank-pop)
-(key-chord-define-global "cg"     "\C-c\C-c")
-                                        ; frame actions
-
-(key-chord-define-global "zx" 'other-window)
-(key-chord-define-global "x1"     'delete-other-windows)
-(key-chord-define-global "x0"     'delete-window)
-
 (defun kill-this-buffer-if-not-modified ()
   (interactive)
                                         ; taken from menu-bar.el
   (if (menu-bar-non-minibuffer-window-p)
       (kill-buffer-if-not-modified (current-buffer))
     (abort-recursive-edit)))
-(key-chord-define-global "xk"     'kill-this-buffer-if-not-modified)
-                                        ; file actions
-(key-chord-define-global "vc"     'vc-next-action)
+
+(setq helm-ag-base-command "ag --nocolor --nogroup --ignore-case")
+(setq helm-ag-command-option "--all-text")
+(setq helm-ag-thing-at-point 'symbol)
+
+;; prelude modules we require
+
+(require 'prelude-python)
+(require 'prelude-erlang)
+(require 'prelude-haskell)
+(require 'pabbrev) ;; fix before enabling
+(require 'highlight-symbol)
+
+(setq prelude-whitespace nil)
