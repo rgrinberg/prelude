@@ -13,7 +13,6 @@
                                  elixir-mode
                                  ag
                                  helm-ag
-                                 pabbrev
                                  highlight-symbol
                                  ) prelude-packages))
 
@@ -53,7 +52,6 @@
 
 (defun kill-this-buffer-if-not-modified ()
   (interactive)
-                                        ; taken from menu-bar.el
   (if (menu-bar-non-minibuffer-window-p)
       (kill-buffer-if-not-modified (current-buffer))
     (abort-recursive-edit)))
@@ -67,7 +65,43 @@
 (require 'prelude-python)
 (require 'prelude-erlang)
 (require 'prelude-haskell)
-(require 'pabbrev) ;; fix before enabling
 (require 'highlight-symbol)
 
 (setq prelude-whitespace nil)
+
+(add-to-list 'load-path "~/.emacs.d/el-get/el-get")
+
+(unless (require 'el-get nil 'noerror)
+  (with-current-buffer
+      (url-retrieve-synchronously
+       "https://raw.github.com/dimitri/el-get/master/el-get-install.el")
+    (let (el-get-master-branch)
+      (goto-char (point-max))
+      (eval-print-last-sexp))))
+
+(setq el-get-sources
+      '(el-get
+        ;; not sure wtf is wrong with this dependency but i must include it manually
+        (:name pabbrev
+               :type http
+               :url "https://raw.github.com/phillord/phil-emacs-packages/master/pabbrev.el"
+               :after (progn
+                        (require 'pabbrev)
+                        (global-pabbrev-mode)))
+        (:name goto-last-change
+               :type github
+               :after (progn
+                        (global-set-key (kbd "C-x C-/") 'goto-last-change)))))
+
+;; install any packages not installed yet
+(mapc (lambda (f)
+        (let ((name (plist-get f :name)))
+          (when (not (require name nil t)) (el-get-install name))))
+      el-get-sources)
+
+(setq my:el-packages
+      (append
+       '(crontab-mode)
+       (mapcar 'el-get-as-symbol (mapcar 'el-get-source-name el-get-sources))))
+
+(el-get 'sync my:el-packages)
