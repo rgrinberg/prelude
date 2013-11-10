@@ -14,13 +14,16 @@
                                  ag
                                  helm-ag
                                  highlight-symbol
+                                 enh-ruby-mode
                                  ) prelude-packages))
 
 ;; Install my packages
 (prelude-install-packages)
 
 (scroll-bar-mode -1)
-(load-theme 'deeper-blue t)
+;; (load-theme 'deeper-blue t)
+;; (load-theme 'tsdh-light t)
+;; (load-theme 'adwaita t)
 
 (require 'auto-complete-config)
 (global-auto-complete-mode t)
@@ -65,7 +68,14 @@
 (require 'prelude-python)
 (require 'prelude-erlang)
 (require 'prelude-haskell)
+(require 'prelude-ruby)
 (require 'highlight-symbol)
+
+(defalias 'ruby-mode 'enh-ruby-mode)
+
+(add-hook 'enh-ruby-mode-hook
+          (lambda ()
+            (define-key enh-ruby-mode-map (kbd "RET") 'newline-and-indent)))
 
 (setq prelude-whitespace nil)
 
