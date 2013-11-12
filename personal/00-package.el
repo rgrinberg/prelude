@@ -15,6 +15,7 @@
                                  helm-ag
                                  highlight-symbol
                                  enh-ruby-mode
+                                 jtags
                                  ) prelude-packages))
 
 ;; Install my packages
@@ -73,8 +74,11 @@
 
 (defalias 'ruby-mode 'enh-ruby-mode)
 
+(add-to-list 'auto-mode-alist '("\\.elm\\'" . haskell-mode))
+
 (add-hook 'enh-ruby-mode-hook
           (lambda ()
+            ;; enh-ruby-mode overwrites this mode?
             (define-key enh-ruby-mode-map (kbd "RET") 'newline-and-indent)))
 
 (setq prelude-whitespace nil)
@@ -98,8 +102,13 @@
                :after (progn
                         (require 'pabbrev)
                         (global-pabbrev-mode)))
+        ;; (:name jdee
+        ;;        :website "http://jdee.sourceforge.net/"
+        ;;        :description "The JDEE is an add-on software package that turns Emacs into a comprehensive system for creating, editing, debugging, and documenting Java applications."
+        ;;        :type svn
+        ;;        :url "https://jdee.svn.sourceforge.net/svnroot/jdee/trunk/jdee")
+               ;; :build ("touch `find . -name Makefile`" "make")
         (:name goto-last-change
-               :type github
                :after (progn
                         (global-set-key (kbd "C-x C-/") 'goto-last-change)))))
 
