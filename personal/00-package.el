@@ -1,4 +1,5 @@
 (require 'package)
+(require 'cl) ;; javadoc-lookup warns if cl isn't required
 ;; don't need this for now
 ;; (add-to-list 'package-archives
 ;;              '("marmalade" .
@@ -11,11 +12,22 @@
                                  popup
                                  solarized-theme
                                  elixir-mode
+                                 elixir-mix
+                                 elixir-yasnippets
+                                 dash
+                                 caml
                                  ag
+                                 tuareg
+                                 bitlbee
                                  helm-ag
                                  highlight-symbol
                                  enh-ruby-mode
                                  jtags
+                                 groovy-mode ;; for gradle only
+                                 javadoc-lookup
+                                 javap-mode
+                                 ecb
+                                 android-mode
                                  ) prelude-packages))
 
 ;; Install my packages
@@ -75,6 +87,7 @@
 (defalias 'ruby-mode 'enh-ruby-mode)
 
 (add-to-list 'auto-mode-alist '("\\.elm\\'" . haskell-mode))
+(add-to-list 'auto-mode-alist '("\\.gradle\\'" . groovy-mode))
 
 (add-hook 'enh-ruby-mode-hook
           (lambda ()
@@ -124,3 +137,8 @@
        (mapcar 'el-get-as-symbol (mapcar 'el-get-source-name el-get-sources))))
 
 (el-get 'sync my:el-packages)
+
+(add-to-list 'load-path "/home/rudi/reps/jdee-code/jdee/dist/jdee-2.4.2/lisp")
+(load "jde")
+
+(setq android-mode-sdk-dir "~/bin/adt-bundle/sdk")
