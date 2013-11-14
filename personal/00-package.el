@@ -10,7 +10,6 @@
 (setq prelude-packages (append '(
                                  auto-complete
                                  popup
-                                 solarized-theme
                                  elixir-mode
                                  elixir-mix
                                  elixir-yasnippets
