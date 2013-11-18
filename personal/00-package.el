@@ -27,6 +27,9 @@
                                  javap-mode
                                  ecb
                                  android-mode
+                                 indent-guide
+                                 ghc
+                                 window-number
                                  ) prelude-packages))
 
 ;; Install my packages
@@ -114,6 +117,11 @@
                :after (progn
                         (require 'pabbrev)
                         (global-pabbrev-mode)))
+        (:name ocp-indent
+               :type http
+               :url "https://raw.github.com/OCamlPro/ocp-indent/master/tools/ocp-indent.el"
+               :after (progn
+                        (require 'ocp-indent)))
         ;; (:name jdee
         ;;        :website "http://jdee.sourceforge.net/"
         ;;        :description "The JDEE is an add-on software package that turns Emacs into a comprehensive system for creating, editing, debugging, and documenting Java applications."
@@ -141,3 +149,9 @@
 (load "jde")
 
 (setq android-mode-sdk-dir "~/bin/adt-bundle/sdk")
+
+(require 'window-number)
+(window-number-meta-mode)
+
+(require 'indent-guide)
+(indent-guide-global-mode)
