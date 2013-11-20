@@ -30,6 +30,7 @@
                                  indent-guide
                                  ghc
                                  window-number
+                                 helm-git-grep
                                  ) prelude-packages))
 
 ;; Install my packages
