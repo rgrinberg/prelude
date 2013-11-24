@@ -31,12 +31,18 @@
                                  ghc
                                  window-number
                                  helm-git-grep
+                                 ascope
+                                 helm-themes
+                                 monokai-theme
                                  ) prelude-packages))
 
 ;; Install my packages
 (prelude-install-packages)
 
 (scroll-bar-mode -1)
+(disable-theme 'zenburn)
+(load-theme 'monokai)
+;; (load-theme 'misterioso)
 ;; (load-theme 'deeper-blue t)
 ;; (load-theme 'tsdh-light t)
 ;; (load-theme 'adwaita t)
