@@ -71,3 +71,14 @@ This is the same as using \\[set-mark-command] with the prefix argument."
 (global-set-key (kbd "C-\\ M-\\") 'helm-git-grep-at-point)
 (global-set-key (kbd "C-\\ SPC") 'delete-horizontal-space)
 (global-set-key (kbd "C-\\ C-o") 'helm-multi-occur)
+
+(global-set-key (kbd "C-<f12>") 'menu-bar-mode)
+(global-set-key (kbd "<f12>")
+                (lambda ()
+                  (interactive)
+                  (message "this should screw with ecb")
+                  (if (boundp 'ecb-minor-mode)
+                      (ecb-toggle-ecb-windows)
+                    (ecb-activate))))
+
+minor-mode-list
