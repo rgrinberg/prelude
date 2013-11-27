@@ -80,5 +80,4 @@ This is the same as using \\[set-mark-command] with the prefix argument."
                   (if (boundp 'ecb-minor-mode)
                       (ecb-toggle-ecb-windows)
                     (ecb-activate))))
-
-minor-mode-list
+(global-set-key (kbd "C-x C-r") 'sudo-edit)
