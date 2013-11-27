@@ -31,9 +31,15 @@
                                  ghc
                                  window-number
                                  helm-git-grep
-                                 ascope
                                  helm-themes
                                  monokai-theme
+                                 bookmark+
+                                 dired+
+                                 async
+                                 powerline
+                                 strings
+                                 scion
+                                 ht
                                  ) prelude-packages))
 
 ;; Install my packages
@@ -162,3 +168,9 @@
 
 (require 'indent-guide)
 (indent-guide-global-mode)
+
+(eval-after-load 'tramp (setenv "SHELL" "/bin/bash"))
+(require 'bookmark+)
+
+(require 'powerline)
+(powerline-default-theme)
