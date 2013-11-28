@@ -124,12 +124,6 @@
 (setq el-get-sources
       '(el-get
         ;; not sure wtf is wrong with this dependency but i must include it manually
-        (:name pabbrev
-               :type http
-               :url "https://raw.github.com/phillord/phil-emacs-packages/master/pabbrev.el"
-               :after (progn
-                        (require 'pabbrev)
-                        (global-pabbrev-mode)))
         (:name ocp-indent
                :type http
                :url "https://raw.github.com/OCamlPro/ocp-indent/master/tools/ocp-indent.el"
