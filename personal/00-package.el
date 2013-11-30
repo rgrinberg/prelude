@@ -40,10 +40,17 @@
                                  strings
                                  scion
                                  ht
+                                 jedi
+                                 lacarte
+                                 icicles
+                                 replace+
+                                 ghci-completion
                                  ) prelude-packages))
 
 ;; Install my packages
 (prelude-install-packages)
+
+
 
 (scroll-bar-mode -1)
 (disable-theme 'zenburn)
@@ -52,9 +59,6 @@
 ;; (load-theme 'deeper-blue t)
 ;; (load-theme 'tsdh-light t)
 ;; (load-theme 'adwaita t)
-
-(require 'auto-complete-config)
-(global-auto-complete-mode t)
 
 ;; not sure why the local lambda def isn't working
 (defun swap (l)
@@ -129,6 +133,15 @@
                :url "https://raw.github.com/OCamlPro/ocp-indent/master/tools/ocp-indent.el"
                :after (progn
                         (require 'ocp-indent)))
+
+        (:name utop
+               :type http
+               :url "https://raw.github.com/diml/utop/master/src/top/utop.el"
+               :after (progn
+                        (autoload 'utop "utop" "Toplevel for OCaml" t)
+                        (autoload 'utop-setup-ocaml-buffer "utop" "Toplevel for OCaml" t)
+                        (add-hook 'tuareg-mode-hook 'utop-setup-ocaml-buffer)
+                        (add-hook 'typerex-mode-hook 'utop-setup-ocaml-buffer)))
         ;; (:name jdee
         ;;        :website "http://jdee.sourceforge.net/"
         ;;        :description "The JDEE is an add-on software package that turns Emacs into a comprehensive system for creating, editing, debugging, and documenting Java applications."
@@ -152,6 +165,8 @@
 
 (el-get 'sync my:el-packages)
 
+(set-default-font "Ubuntu Mono 14")
+
 (add-to-list 'load-path "/home/rudi/reps/jdee-code/jdee/dist/jdee-2.4.2/lisp")
 (load "jde")
 
@@ -163,8 +178,13 @@
 (require 'indent-guide)
 (indent-guide-global-mode)
 
-(eval-after-load 'tramp (setenv "SHELL" "/bin/bash"))
+;; opens ansi-term in bash
+;; (eval-after-load 'tramp (setenv "SHELL" "/bin/bash"))
 (require 'bookmark+)
+(require 'dired+)
 
 (require 'powerline)
 (powerline-default-theme)
+
+(require 'lacarte)
+(require 'replace+)
