@@ -11,17 +11,12 @@
   (setenv (car var) (cadr var)))
 
 ;; Update the emacs path
+;; TODO unfuck this way of handling paths
 (setq exec-path (split-string (getenv "PATH") path-separator))
+(add-to-list 'exec-path "~/.cabal/bin")
 
 ;; Update the emacs load path
 (push (concat (getenv "OCAML_TOPLEVEL_PATH") "/../../share/emacs/site-lisp") load-path)
-
-;; Automatically load utop.el
-(autoload 'utop "utop" "Toplevel for OCaml" t)
-
-(autoload 'utop-setup-ocaml-buffer "utop" "Toplevel for OCaml" t)
-(add-hook 'tuareg-mode-hook 'utop-setup-ocaml-buffer)
-(add-hook 'typerex-mode-hook 'utop-setup-ocaml-buffer)
 
 (defun my-merlin-hook ()
   "merlin overwrites C-c C-r, we set it back"

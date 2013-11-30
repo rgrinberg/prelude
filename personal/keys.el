@@ -81,3 +81,4 @@ This is the same as using \\[set-mark-command] with the prefix argument."
                       (ecb-toggle-ecb-windows)
                     (ecb-activate))))
 (global-set-key (kbd "C-x C-r") 'sudo-edit)
+(global-set-key (kbd "C-\\ M-x") 'lacarte-execute-command)
