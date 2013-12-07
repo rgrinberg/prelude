@@ -1,3 +1,4 @@
+;;; TODO
 (require 'package)
 (require 'cl) ;; javadoc-lookup warns if cl isn't required
 ;; don't need this for now
@@ -56,6 +57,8 @@
 
 
 
+(require 'key-chord)
+
 (scroll-bar-mode -1)
 (disable-theme 'zenburn)
 (load-theme 'monokai)
@@ -69,6 +72,7 @@
   (if (cdr l)
       (cons (cadr l) (cons (car l) (cddr l)))))
 
+;; this isn't used anymore, can deleted
 (defun ido-jump-to-window ()
   (interactive)
   (let* ((swap (lambda (l)
@@ -101,10 +105,18 @@
 
 ;; prelude modules we require
 
+(require 'prelude-programming)
+(require 'prelude-js)
+(require 'prelude-emacs-lisp)
+(require 'prelude-org)
 (require 'prelude-python)
 (require 'prelude-erlang)
 (require 'prelude-haskell)
+(require 'prelude-key-chord)
+(require 'prelude-helm)
 (require 'prelude-ruby)
+(require 'prelude-erc)
+
 (require 'highlight-symbol)
 
 (defalias 'ruby-mode 'enh-ruby-mode)
@@ -169,12 +181,14 @@
 
 (el-get 'sync my:el-packages)
 
-(set-default-font "Ubuntu Mono 14")
+;; (add-to-list 'load-path "/home/rudi/reps/jdee-code/jdee/dist/jdee-2.4.2/lisp")
+;; (load "jde")
 
-(add-to-list 'load-path "/home/rudi/reps/jdee-code/jdee/dist/jdee-2.4.2/lisp")
-(load "jde")
+(setq-default cursor-type 'bar)
 
-(setq android-mode-sdk-dir "~/bin/adt-bundle/sdk")
+;; TODO: wrong
+;; (setq android-mode-sdk-dir "~/bin/adt-bundle/sdk")
+(setq android-mode-sdk-dir "~/android-sdk")
 
 (require 'window-number)
 (window-number-meta-mode)
@@ -190,5 +204,6 @@
 (require 'powerline)
 (powerline-default-theme)
 
-(require 'lacarte)
+(require 'lacarte) ;; doesn't work with ido unfortunately
 (require 'replace+)
+(blink-cursor-mode)
