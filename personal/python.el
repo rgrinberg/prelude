@@ -12,3 +12,7 @@
 
 (add-hook 'python-mode-hook 'jedi:setup)
 (setq jedi:complete-on-dot t)
+
+;; pylint is way too annoying
+(eval-after-load 'flycheck
+  '(setq flycheck-checkers (delq 'python-pylint flycheck-checkers)))
