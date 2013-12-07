@@ -1,4 +1,4 @@
-(global-set-key (kbd "C-x C-w") 'ido-jump-to-window)
+(global-set-key (kbd "C-x C-w") 'helm-prelude)
 
 ;; TODO put chords and misc bindings into own file
 (key-chord-define-global "wf" 'ido-find-file)
