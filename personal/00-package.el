@@ -8,6 +8,8 @@
 
 ;; My packages
 (setq prelude-packages (append '(
+                                 ac-etags
+                                 yasnippet
                                  auto-complete
                                  popup
                                  elixir-mode
@@ -17,6 +19,7 @@
                                  caml
                                  ag
                                  tuareg
+                                 key-chord
                                  bitlbee
                                  helm-ag
                                  highlight-symbol
@@ -45,6 +48,7 @@
                                  icicles
                                  replace+
                                  ghci-completion
+                                 helm-ag-r
                                  ) prelude-packages))
 
 ;; Install my packages
