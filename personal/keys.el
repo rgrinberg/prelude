@@ -3,6 +3,11 @@
 ;; TODO put chords and misc bindings into own file
 (key-chord-define-global "wf" 'ido-find-file)
 
+(global-set-key (kbd "<escape>") 'god-local-mode)
+(key-chord-define-global "jk" 'god-local-mode)
+(define-key god-local-mode-map (kbd ".") 'repeat)
+
+
 ;; XXX do these works for other major modes?
 (key-chord-define-global "vg"     'eval-region)
 (key-chord-define-global "vb"     'eval-buffer)
@@ -68,6 +73,7 @@ This is the same as using \\[set-mark-command] with the prefix argument."
 (global-set-key (kbd "M-i") 'prelude-ido-goto-symbol)
 (global-unset-key (kbd "C-\\"))
 (global-set-key (kbd "C-\\ C-\\") 'helm-git-grep)
+(global-set-key (kbd "C-\\ C-]") 'helm-ag-r)
 (global-set-key (kbd "C-\\ M-\\") 'helm-git-grep-at-point)
 (global-set-key (kbd "C-\\ SPC") 'delete-horizontal-space)
 (global-set-key (kbd "C-\\ C-o") 'helm-multi-occur)
