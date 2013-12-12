@@ -14,7 +14,6 @@
 (key-chord-define-global "cg"     "\C-c\C-c")
 
 (key-chord-define-global "zx" 'other-window)
-(key-chord-define-global "x1"     'delete-other-windows)
 (key-chord-define-global "x0"     'delete-window)
 (key-chord-define-global "vc"     'vc-next-action)
 (key-chord-define-global "xk"     'kill-this-buffer-if-not-modified)
