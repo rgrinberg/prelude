@@ -50,6 +50,13 @@
                                  replace+
                                  ghci-completion
                                  helm-ag-r
+                                 god-mode
+                                 helm-rails
+                                 projectile-rails
+                                 robe
+                                 rinari
+                                 rvm
+                                 nginx-mode
                                  ) prelude-packages))
 
 ;; Install my packages
@@ -207,3 +214,6 @@
 (require 'lacarte) ;; doesn't work with ido unfortunately
 (require 'replace+)
 (blink-cursor-mode)
+
+(require 'god-mode)
+(add-to-list 'god-exempt-major-modes 'dired-mode)
