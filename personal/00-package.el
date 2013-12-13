@@ -57,12 +57,11 @@
                                  rinari
                                  rvm
                                  nginx-mode
+                                 ac-etags
                                  ) prelude-packages))
 
 ;; Install my packages
 (prelude-install-packages)
-
-
 
 (require 'key-chord)
 
@@ -217,3 +216,6 @@
 
 (require 'god-mode)
 (add-to-list 'god-exempt-major-modes 'dired-mode)
+
+(require 'icicles)
+(icy-mode 1)
