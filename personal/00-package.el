@@ -58,6 +58,11 @@
                                  rvm
                                  nginx-mode
                                  ac-etags
+                                 icomplete+
+                                 fuzzy-match
+                                 el-swank-fuzzy
+                                 isearch+
+                                 isearch-prop
                                  ) prelude-packages))
 
 ;; Install my packages
@@ -164,12 +169,6 @@
                         (autoload 'utop-setup-ocaml-buffer "utop" "Toplevel for OCaml" t)
                         (add-hook 'tuareg-mode-hook 'utop-setup-ocaml-buffer)
                         (add-hook 'typerex-mode-hook 'utop-setup-ocaml-buffer)))
-        ;; (:name jdee
-        ;;        :website "http://jdee.sourceforge.net/"
-        ;;        :description "The JDEE is an add-on software package that turns Emacs into a comprehensive system for creating, editing, debugging, and documenting Java applications."
-        ;;        :type svn
-        ;;        :url "https://jdee.svn.sourceforge.net/svnroot/jdee/trunk/jdee")
-               ;; :build ("touch `find . -name Makefile`" "make")
         (:name goto-last-change
                :after (progn
                         (global-set-key (kbd "C-x C-/") 'goto-last-change)))))
@@ -196,6 +195,8 @@
 ;; (setq android-mode-sdk-dir "~/bin/adt-bundle/sdk")
 (setq android-mode-sdk-dir "~/android-sdk")
 
+(require 'fuzzy-match)
+
 (require 'window-number)
 (window-number-meta-mode)
 
@@ -217,5 +218,11 @@
 (require 'god-mode)
 (add-to-list 'god-exempt-major-modes 'dired-mode)
 
+(require 'icomplete+)
+(icomplete-mode 1)
+
+(eval-after-load "isearch" '(require 'isearch+))
+
 (require 'icicles)
 (icy-mode 1)
+
