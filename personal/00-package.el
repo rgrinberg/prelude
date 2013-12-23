@@ -13,9 +13,11 @@
                                  yasnippet
                                  auto-complete
                                  popup
+                                 flymake-easy
                                  elixir-mode
                                  elixir-mix
                                  elixir-yasnippets
+                                 flymake-elixir
                                  dash
                                  caml
                                  ag
@@ -63,6 +65,9 @@
                                  el-swank-fuzzy
                                  isearch+
                                  isearch-prop
+                                 popwin
+                                 helm-swoop
+                                 afternoon-theme
                                  ) prelude-packages))
 
 ;; Install my packages
