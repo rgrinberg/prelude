@@ -77,7 +77,7 @@
 
 (scroll-bar-mode -1)
 (disable-theme 'zenburn)
-(load-theme 'monokai)
+(load-theme 'afternoon t)
 ;; (load-theme 'misterioso)
 ;; (load-theme 'deeper-blue t)
 ;; (load-theme 'tsdh-light t)
@@ -121,17 +121,21 @@
 
 ;; prelude modules we require
 
-(require 'prelude-programming)
-(require 'prelude-js)
+(require 'prelude-coffee)
+(require 'prelude-css)
 (require 'prelude-emacs-lisp)
-(require 'prelude-org)
-(require 'prelude-python)
+(require 'prelude-erc)
 (require 'prelude-erlang)
 (require 'prelude-haskell)
-(require 'prelude-key-chord)
 (require 'prelude-helm)
+;; (require 'prelude-ido)
+(require 'prelude-js)
+(require 'prelude-key-chord)
+(require 'prelude-org)
+(require 'prelude-programming)
+(require 'prelude-python)
 (require 'prelude-ruby)
-(require 'prelude-erc)
+(require 'prelude-web)
 
 (require 'highlight-symbol)
 
@@ -228,6 +232,18 @@
 
 (eval-after-load "isearch" '(require 'isearch+))
 
+(require 'helm-config)
+(require 'helm-swoop)
+
 (require 'icicles)
 (icy-mode 1)
 
+(require 'popwin)
+(popwin-mode 1)
+
+(setq popwin:special-display-config
+      (remove-if (lambda (conf)
+                   (if (listp conf)
+                       (eq (car conf) 'completion-list-mode)
+                     (eq conf 'completion-list-mode)))
+                 popwin:special-display-config))

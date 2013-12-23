@@ -1,19 +1,19 @@
 (global-set-key (kbd "C-x C-w") 'helm-prelude)
+(global-set-key (kbd "C--") 'helm-projectile)
 
 ;; TODO put chords and misc bindings into own file
 (key-chord-define-global "wf" 'ido-find-file)
 
-(global-set-key (kbd "<escape>") 'god-local-mode)
-(key-chord-define-global "jk" 'god-local-mode)
+(global-set-key (kbd "<escape>") 'god-mode-all)
+(key-chord-define-global "jk" 'god-mode-all)
+(key-chord-define-global "zx" 'keyboard-quit)
 (define-key god-local-mode-map (kbd ".") 'repeat)
-
 
 ;; XXX do these works for other major modes?
 (key-chord-define-global "vg"     'eval-region)
 (key-chord-define-global "vb"     'eval-buffer)
 (key-chord-define-global "cg"     "\C-c\C-c")
 
-(key-chord-define-global "zx" 'other-window)
 (key-chord-define-global "x0"     'delete-window)
 (key-chord-define-global "vc"     'vc-next-action)
 (key-chord-define-global "xk"     'kill-this-buffer-if-not-modified)
@@ -69,7 +69,12 @@ This is the same as using \\[set-mark-command] with the prefix argument."
   (set-mark-command 1))
 (global-set-key (kbd "M-`") 'jump-to-mark)
 
-(global-set-key (kbd "M-i") 'prelude-ido-goto-symbol)
+;; (global-set-key (kbd "M-i") 'prelude-ido-goto-symbol)
+(global-set-key (kbd "M-i") 'helm-swoop)
+(global-set-key (kbd "M-I") 'helm-swoop-back-to-last-point)
+;; When doing isearch, hand the word over to helm-swoop
+(define-key isearch-mode-map (kbd "M-i") 'helm-swoop-from-isearch)
+
 (global-unset-key (kbd "C-\\"))
 (global-set-key (kbd "C-\\ C-\\") 'helm-git-grep)
 (global-set-key (kbd "C-\\ C-]") 'helm-ag-r)
@@ -87,3 +92,4 @@ This is the same as using \\[set-mark-command] with the prefix argument."
                     (ecb-activate))))
 (global-set-key (kbd "C-x C-r") 'sudo-edit)
 (global-set-key (kbd "C-\\ M-x") 'lacarte-execute-command)
+(global-set-key (kbd "C-z") popwin:keymap)
