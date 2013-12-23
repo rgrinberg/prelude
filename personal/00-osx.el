@@ -5,7 +5,7 @@
 (set-default-font "Monaco 12")
 ;; this hack for magit, assumes that emacs has been installed with homebrew
 ;; TODO: check that this executable exists
-(set-variable 'magit-emacsclient-executable "/usr/local/Cellar/emacs/24.3/bin/emacsclient")
+(set-variable 'magit-emacsclient-executable "/usr/local/Cellar/emacs/HEAD/bin/emacsclient")
 
 (setq locale-coding-system 'utf-8)
 (set-terminal-coding-system 'utf-8-unix)
