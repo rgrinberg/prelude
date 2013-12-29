@@ -1,12 +1,16 @@
 (global-set-key (kbd "C-x C-w") 'helm-prelude)
 (global-set-key (kbd "C--") 'helm-projectile)
+(global-set-key (kbd "M-=") 'helm-mini)
+(global-set-key [f9] 'helm-buffers-list)
+(global-set-key (kbd "s-s") 'helm-keyboard-quit)
+(global-set-key (kbd "C-c C-f") 'helm-recentf)
 
 ;; TODO put chords and misc bindings into own file
 (key-chord-define-global "wf" 'ido-find-file)
 
 (global-set-key (kbd "<escape>") 'god-mode-all)
 (key-chord-define-global "jk" 'god-mode-all)
-(key-chord-define-global "zx" 'keyboard-quit)
+(key-chord-define-global "zx" 'helm-keyboard-quit)
 (define-key god-local-mode-map (kbd ".") 'repeat)
 
 ;; XXX do these works for other major modes?
