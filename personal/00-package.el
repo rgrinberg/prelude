@@ -41,6 +41,10 @@
                                  monokai-theme
                                  bookmark+
                                  dired+
+                                 dired-details
+                                 dired-details+
+                                 dired-sort-menu
+                                 dired-sort-menu+
                                  async
                                  powerline
                                  strings
@@ -68,6 +72,9 @@
                                  popwin
                                  helm-swoop
                                  afternoon-theme
+                                 ac-helm
+                                 bubbleberry-theme
+                                 birds-of-paradise-plus-theme
                                  ) prelude-packages))
 
 ;; Install my packages
@@ -77,7 +84,7 @@
 
 (scroll-bar-mode -1)
 (disable-theme 'zenburn)
-(load-theme 'afternoon t)
+(load-theme 'birds-of-paradise-plus t)
 ;; (load-theme 'misterioso)
 ;; (load-theme 'deeper-blue t)
 ;; (load-theme 'tsdh-light t)
@@ -204,18 +211,25 @@
 ;; (setq android-mode-sdk-dir "~/bin/adt-bundle/sdk")
 (setq android-mode-sdk-dir "~/android-sdk")
 
+(require 'ac-helm)
+(global-set-key (kbd "C-;") 'ac-complete-with-helm)
+(define-key ac-complete-mode-map (kbd "C-;") 'ac-complete-with-helm)
+
+
 (require 'fuzzy-match)
 
 (require 'window-number)
 (window-number-meta-mode)
 
 (require 'indent-guide)
-(indent-guide-global-mode)
+(add-hook 'prog-mode-hook #'indent-guide-mode)
 
 ;; opens ansi-term in bash
 ;; (eval-after-load 'tramp (setenv "SHELL" "/bin/bash"))
 (require 'bookmark+)
 (require 'dired+)
+(require 'dired-sort-menu+)
+(require 'dired-details+)
 
 (require 'powerline)
 (powerline-default-theme)
@@ -229,7 +243,6 @@
 
 (require 'icomplete+)
 (icomplete-mode 1)
-
 (eval-after-load "isearch" '(require 'isearch+))
 
 (require 'helm-config)
