@@ -3,6 +3,5 @@
                      (when (boundp 'minibuffer-local-filename-completion-map)
                        (list minibuffer-local-filename-completion-map))))
   (define-key map [?\C-w] 'sp-backward-kill-word)
-  (icicle-remap 'previous-line 'icicle-previous-prefix-candidate map)
-  (icicle-remap 'next-line 'icicle-next-prefix-candidate map))
-
+  (icicle-remap 'next-line 'icicle-next-candidate-per-mode map)
+  (icicle-remap 'previous-line 'icicle-previous-candidate-per-mode map))
