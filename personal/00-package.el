@@ -27,10 +27,8 @@
                                  helm-ag
                                  highlight-symbol
                                  enh-ruby-mode
-                                 jtags
-                                 groovy-mode ;; for gradle only
-                                 javadoc-lookup
-                                 javap-mode
+                                 groovy-mode
+                                 mykie
                                  ecb
                                  android-mode
                                  indent-guide
@@ -66,15 +64,32 @@
                                  ac-etags
                                  icomplete+
                                  fuzzy-match
+                                 fuzzy
                                  el-swank-fuzzy
                                  isearch+
                                  isearch-prop
+                                 help+
+                                 help-fns+
+                                 help-mode+
                                  popwin
                                  helm-swoop
                                  afternoon-theme
                                  ac-helm
                                  bubbleberry-theme
                                  birds-of-paradise-plus-theme
+                                 cus-edit+
+                                 info+
+                                 window+
+                                 redo+
+                                 macros+
+                                 grep+
+                                 face-remap+
+                                 facemenu+
+                                 faces+
+                                 files+
+                                 filesets+
+                                 font-lock+
+                                 apropos-fn+var
                                  ) prelude-packages))
 
 ;; Install my packages
@@ -171,6 +186,10 @@
 (setq el-get-sources
       '(el-get
         ;; not sure wtf is wrong with this dependency but i must include it manually
+        (:name sunburn
+               :type http
+               :url "https://raw.github.com/chrisdone/zenburn/master/sunburn.el"
+               )
         (:name ocp-indent
                :type http
                :url "https://raw.github.com/OCamlPro/ocp-indent/master/tools/ocp-indent.el"
@@ -222,7 +241,9 @@
 (window-number-meta-mode)
 
 (require 'indent-guide)
-(add-hook 'prog-mode-hook #'indent-guide-mode)
+
+(dolist (mode '(prog-mode-hook enh-ruby-mode-hook))
+  (add-hook mode #'indent-guide-mode))
 
 ;; opens ansi-term in bash
 ;; (eval-after-load 'tramp (setenv "SHELL" "/bin/bash"))
