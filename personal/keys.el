@@ -30,7 +30,7 @@
 (ac-set-trigger-key "TAB")
 
 (require 'highlight-symbol)
-(global-set-key (kbd "C-'") 'highlight-symbol-at-point)
+(global-set-key (kbd "C-'") 'helm-buffers-list)
 (global-set-key (kbd "C-M-'") 'highlight-symbol-query-replace)
 (global-set-key (kbd "C-c C-'") 'highlight-symbol-remove-all)
 (add-hook 'prog-mode-hook #'highlight-symbol-nav-mode)
@@ -95,5 +95,4 @@ This is the same as using \\[set-mark-command] with the prefix argument."
                       (ecb-toggle-ecb-windows)
                     (ecb-activate))))
 (global-set-key (kbd "C-x C-r") 'sudo-edit)
-(global-set-key (kbd "C-\\ M-x") 'lacarte-execute-command)
 (global-set-key (kbd "C-z") popwin:keymap)
