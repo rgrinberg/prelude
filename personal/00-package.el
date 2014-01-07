@@ -90,6 +90,7 @@
                                  filesets+
                                  font-lock+
                                  apropos-fn+var
+                                 xcscope
                                  ) prelude-packages))
 
 ;; Install my packages
@@ -172,6 +173,7 @@
             (define-key enh-ruby-mode-map (kbd "RET") 'newline-and-indent)))
 
 (setq prelude-whitespace nil)
+(setq prelude-clean-whitespace-on-save nil)
 
 (add-to-list 'load-path "~/.emacs.d/el-get/el-get")
 
