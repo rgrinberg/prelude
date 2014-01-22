@@ -1,4 +1,5 @@
-(push "/usr/share/emacs/site-lisp" load-path)
+;; (push "~/reps/merlin/emacs" load-path)
+(add-to-list 'load-path "~/reps/merlin/emacs")
 
 (setq merlin-use-auto-complete-mode t)
 
