@@ -91,6 +91,10 @@
                                  font-lock+
                                  apropos-fn+var
                                  xcscope
+                                 4clojure
+                                 ac-nrepl
+                                 clojure-cheatsheet
+                                 clojure-snippets
                                  ) prelude-packages))
 
 ;; Install my packages
@@ -159,6 +163,7 @@
 (require 'prelude-python)
 (require 'prelude-ruby)
 (require 'prelude-web)
+(require 'prelude-clojure)
 
 (require 'highlight-symbol)
 
