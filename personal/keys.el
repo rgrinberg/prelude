@@ -4,6 +4,8 @@
 (global-set-key [f9] 'helm-buffers-list)
 (global-set-key (kbd "s-s") 'helm-keyboard-quit)
 (global-set-key (kbd "C-c C-f") 'helm-recentf)
+(global-set-key (kbd "M-x") 'helm-M-x)
+(global-set-key (kbd "C-c M-x") 'icicle-execute-extended-command)
 
 ;; TODO put chords and misc bindings into own file
 (key-chord-define-global "wf" 'ido-find-file)
