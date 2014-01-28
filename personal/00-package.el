@@ -95,6 +95,9 @@
                                  ac-nrepl
                                  clojure-cheatsheet
                                  clojure-snippets
+                                 elein
+                                 ac-cider-compliment
+                                 jsx-mode
                                  ) prelude-packages))
 
 ;; Install my packages
@@ -104,7 +107,8 @@
 
 (scroll-bar-mode -1)
 (disable-theme 'zenburn)
-(load-theme 'birds-of-paradise-plus t)
+(load-theme 'cyberpunk t)
+;; (load-theme 'birds-of-paradise-plus t)
 ;; (load-theme 'misterioso)
 ;; (load-theme 'deeper-blue t)
 ;; (load-theme 'tsdh-light t)
